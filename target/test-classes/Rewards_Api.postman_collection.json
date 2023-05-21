@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "cc055aa3-4998-4af9-b1d4-d9961a973f13",
+		"name": "Rewards Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all rewards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8008/customerRewards/rewards",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"customerRewards",
+						"rewards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get customer rewards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8008/customerRewards/customerId?customerId=8",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"customerRewards",
+						"customerId"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

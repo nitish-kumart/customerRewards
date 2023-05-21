@@ -1,0 +1,6 @@
+com/example/rewads/api/customerRewards/repository/CustomerTransactionRepositoryTest.class
+com/example/rewads/api/customerRewards/TestPractice.class
+com/example/rewads/api/customerRewards/service/CustomerRewardsServiceTest.class
+com/example/rewads/api/customerRewards/CustomerRewardsApplicationTests.class
+com/example/rewads/api/customerRewards/repository/CustomerRepositoryTest.class
+com/example/rewads/api/customerRewards/controller/CustomerRewardsControllerTest.class
