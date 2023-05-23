@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -53,12 +53,17 @@ public class CustomerTransactionRepositoryTest {
     }
 
     @Test
-    public void findCustomersById() throws SQLException {
-        CustomerTransaction customerTransaction = transactionRepository.findById(customerTransaction2.getTransactionId()).orElseThrow(() -> new SQLException("Record not Found"));
+    public void findCustomersById() throws EntityNotFoundException {
+        CustomerTransaction customerTransaction = transactionRepository.findById(customerTransaction2.getTransactionId()).orElseThrow(() -> new EntityNotFoundException("Record not Found"));
 
         assertNotNull(customerTransaction.getTransactionId());
         assertTrue(customerTransaction.getTransactionId() > 0);
         assertEquals(customerTransaction.getAmount().toString(),"150.80");
         assertEquals(customerTransaction.getTransactionDate(), t2Date);
+    }
+
+    @Test
+    public void findCustomersByIdException() throws EntityNotFoundException {
+        assertThrows(EntityNotFoundException.class, () -> transactionRepository.findById(200).orElseThrow(() -> new EntityNotFoundException("Record not Found")));
     }
 }

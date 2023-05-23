@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -54,13 +54,18 @@ public class CustomerRepositoryTest {
     }
 
     @Test
-    public void findCustomersById() throws SQLException {
-        Customer retrieveCustomer = customerRepository.findById(customer.getCustomerId()).orElseThrow(() -> new SQLException("Record not Found"));
+    public void findCustomersById() throws EntityNotFoundException {
+        Customer retrieveCustomer = customerRepository.findById(customer.getCustomerId()).orElseThrow(() -> new EntityNotFoundException("Record not Found"));
 
         assertNotNull(retrieveCustomer.getCustomerId());
         assertTrue(retrieveCustomer.getCustomerId() > 0);
         assertEquals(retrieveCustomer.getCustomerName(),"Brad Pitt");
         assertEquals(retrieveCustomer.getCustomerTransactionList().size(), 2);
+    }
+
+    @Test
+    public void findCustomersByIdException() throws EntityNotFoundException {
+        assertThrows(EntityNotFoundException.class, () -> customerRepository.findById(100).orElseThrow(() -> new EntityNotFoundException("Record not Found")));
     }
 
 }
