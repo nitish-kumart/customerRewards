@@ -1,7 +1,6 @@
 com/example/rewads/api/customerRewards/CustomerRewardsApplication.class
 com/example/rewads/api/customerRewards/controller/CustomerRewardsController.class
 com/example/rewads/api/customerRewards/domain/outgoing/Rewards.class
-com/example/rewads/api/customerRewards/domain/incoming/RewardRequest.class
 com/example/rewads/api/customerRewards/repository/TransactionRepository.class
 com/example/rewads/api/customerRewards/exception/GlobalExceptionHandler.class
 com/example/rewads/api/customerRewards/repository/CustomerTransaction$CustomerTransactionBuilder.class
