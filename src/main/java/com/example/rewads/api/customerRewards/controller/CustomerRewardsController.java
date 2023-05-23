@@ -22,8 +22,9 @@ import java.util.List;
 @Slf4j
 public class CustomerRewardsController {
     Logger logger = LoggerFactory.getLogger(CustomerRewardsController.class);
+
     @Autowired
-    CustomerRewardsService customerRewardsService;
+    private CustomerRewardsService customerRewardsService;
 
     /**
      * Api to return rewards for all customer transactions in past 3 months.

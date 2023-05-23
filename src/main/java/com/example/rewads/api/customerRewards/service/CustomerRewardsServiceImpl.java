@@ -19,7 +19,7 @@ public class CustomerRewardsServiceImpl implements CustomerRewardsService {
     Logger logger = LoggerFactory.getLogger(CustomerRewardsServiceImpl.class);
 
     @Autowired
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     /**
      * Method to get rewards for all customers in the past 3 months.
