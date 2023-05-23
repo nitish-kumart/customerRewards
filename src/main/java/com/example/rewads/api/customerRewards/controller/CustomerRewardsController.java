@@ -32,7 +32,7 @@ public class CustomerRewardsController {
     @GetMapping("/rewards")
     public ResponseEntity<List<RewardsResponse>> getAllRewards() {
         List<RewardsResponse> rewardsResponseList = customerRewardsService.getAllRewards();
-        logger.info("RewardResponse {}",rewardsResponseList);
+        logger.info("RewardResponse {}",rewardsResponseList.toString());
         return new ResponseEntity<>(rewardsResponseList, HttpStatus.OK);
     }
 
